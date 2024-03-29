@@ -46,15 +46,14 @@ def create_dictionary_from_text_file(file_path):
 
   dictionary = {}
   for line in lines:
-    key, value = line.strip().split(":")
+    key, value = line.strip().split(" ")
     dictionary[key] = value
 
   return dictionary
 
-
 # Example usage:
 
-my_dictionary = create_dictionary_from_text_file("my_file.txt")
+my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
 
 print(my_dictionary)
 
