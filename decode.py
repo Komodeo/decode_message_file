@@ -62,11 +62,14 @@ def create_dictionary_from_text_file(file_path):
 # Example usage:
 
 my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
+
+# Create dictionary from solution file
+
 # my_dictionary = create_dictionary_from_text_file("coding_qual_input.txt")
 
 print(my_dictionary)
 
-# create staircase from dictionary
+# Create staircase of nums length
 
 def create_staircase(nums):
   step = 1
@@ -80,3 +83,15 @@ def create_staircase(nums):
       return False
       
   return subsets
+
+# Create list of dictionary keys
+
+my_dictionary_keys = list(my_dictionary.keys())
+
+print(my_dictionary_keys)
+
+# Create staircase from dictionary
+
+my_staircase = create_staircase(my_dictionary_keys)
+
+print(my_staircase)
