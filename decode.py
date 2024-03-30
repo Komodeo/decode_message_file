@@ -49,13 +49,24 @@ def create_dictionary_from_text_file(file_path):
     key, value = line.strip().split(" ")
     dictionary[key] = value
 
-  return dictionary
+  # Convert dictionary keys to int
+    
+  dictionary_int = {int(k) : v for k, v in dictionary.items()}
+
+  # Sort dictionary by key ascending numerically
+
+  dictionary_sorted = dict(sorted(dictionary_int.items()))
+
+  return dictionary_sorted
 
 # Example usage:
 
 my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
+# my_dictionary = create_dictionary_from_text_file("coding_qual_input.txt")
 
 print(my_dictionary)
+
+# create staircase from dictionary
 
 def create_staircase(nums):
   step = 1
