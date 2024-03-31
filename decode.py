@@ -65,19 +65,13 @@ def decode(message_file):
 
     return dictionary_sorted
 
-  # Example usage:
-
-  # my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
-
   # Create dictionary from solution file
 
   my_dictionary = create_dictionary_from_text_file(message_file)
-  # print(my_dictionary)
 
   # Create list of dictionary keys
 
   my_dictionary_keys = list(my_dictionary.keys())
-  # print(my_dictionary_keys)
 
   # Create staircase of nums length
 
@@ -97,7 +91,6 @@ def decode(message_file):
   # Create staircase from dictionary keys
 
   my_staircase = create_staircase(my_dictionary_keys)
-  #print(my_staircase)
 
   # Create list of last element in each sub-list
 
@@ -110,7 +103,6 @@ def decode(message_file):
   # Get last elements of staircase
 
   last_elements = get_last_elements(my_staircase)
-  #print(last_elements)
 
   # Given a list of keys, find each associated value in a given dictionary
 
