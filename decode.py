@@ -31,110 +31,114 @@ and your function should return the string "I love computers".
 
 """
 
-def create_dictionary_from_text_file(file_path):
-  """Creates a dictionary from a text file.
+# Decode message_file using staircase decoder
 
-  Args:
-    file_path: The path to the text file.
+def decode(message_file):
 
-  Returns:
-    A dictionary containing the key-value pairs from the text file.
-  """
+  # Create dictionary from text file
 
-  with open(file_path, "r") as f:
-    lines = f.readlines()
+  def create_dictionary_from_text_file(file_path):
+    """Creates a dictionary from a text file.
 
-  dictionary = {}
-  for line in lines:
-    key, value = line.strip().split(" ")
-    dictionary[key] = value
+    Args:
+      file_path: The path to the text file.
 
-  # Convert dictionary keys to int
-    
-  dictionary_int = {int(k) : v for k, v in dictionary.items()}
+    Returns:
+      A dictionary containing the key-value pairs from the text file.
+    """
 
-  # Sort dictionary by key ascending numerically
+    with open(file_path, "r") as f:
+      lines = f.readlines()
 
-  dictionary_sorted = dict(sorted(dictionary_int.items()))
+    dictionary = {}
+    for line in lines:
+      key, value = line.strip().split(" ")
+      dictionary[key] = value
 
-  return dictionary_sorted
-
-# Example usage:
-
-# my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
-
-# Create dictionary from solution file
-
-my_dictionary = create_dictionary_from_text_file("coding_qual_input.txt")
-
-print(my_dictionary)
-
-# Create list of dictionary keys
-
-my_dictionary_keys = list(my_dictionary.keys())
-
-print(my_dictionary_keys)
-
-# Create staircase of nums length
-
-def create_staircase(nums):
-  step = 1
-  subsets = []
-  while len(nums) != 0:
-    if len(nums) >= step:
-      subsets.append(nums[0:step])
-      nums = nums[step:]
-      step += 1
-    else:
-      return False
+    # Convert dictionary keys to int
       
-  return subsets
+    dictionary_int = {int(k) : v for k, v in dictionary.items()}
 
-# Create staircase from dictionary keys
+    # Sort dictionary by key ascending numerically
 
-my_staircase = create_staircase(my_dictionary_keys)
+    dictionary_sorted = dict(sorted(dictionary_int.items()))
 
-print(my_staircase)
+    return dictionary_sorted
 
-# Create list of last element in each sub-list
+  # Example usage:
 
-def get_last_elements(list_of_lists):
-  last_elements = []
-  for sublist in list_of_lists:
-    last_elements.append(sublist[-1])
-  return last_elements
+  # my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
 
-# Get last elements of staircase
+  # Create dictionary from solution file
 
-last_elements = get_last_elements(my_staircase)
+  my_dictionary = create_dictionary_from_text_file(message_file)
+  # print(my_dictionary)
 
-print(last_elements)
+  # Create list of dictionary keys
 
-# Given a list of keys, find each associated value in a given dictionary
+  my_dictionary_keys = list(my_dictionary.keys())
+  # print(my_dictionary_keys)
 
-def get_values(dict, keys):
-  """Return a list of values associated with the given keys in the given dictionary.
+  # Create staircase of nums length
 
-  Args:
-    dict: A dictionary.
-    keys: A list of keys.
+  def create_staircase(nums):
+    step = 1
+    subsets = []
+    while len(nums) != 0:
+      if len(nums) >= step:
+        subsets.append(nums[0:step])
+        nums = nums[step:]
+        step += 1
+      else:
+        return False
+        
+    return subsets
 
-  Returns:
-    A list of values.
+  # Create staircase from dictionary keys
+
+  my_staircase = create_staircase(my_dictionary_keys)
+  #print(my_staircase)
+
+  # Create list of last element in each sub-list
+
+  def get_last_elements(list_of_lists):
+    last_elements = []
+    for sublist in list_of_lists:
+      last_elements.append(sublist[-1])
+    return last_elements
+
+  # Get last elements of staircase
+
+  last_elements = get_last_elements(my_staircase)
+  #print(last_elements)
+
+  # Given a list of keys, find each associated value in a given dictionary
+
+  def get_values(dict, keys):
+    """Return a list of values associated with the given keys in the given dictionary.
+
+    Args:
+      dict: A dictionary.
+      keys: A list of keys.
+
+    Returns:
+      A list of values.
+    """
+
+    values = []
+    for key in keys:
+      if key in dict:
+        values.append(dict[key])
+    return values
+
+  """
+  For each element in last_elements:
+    find that key in my_dictionary
+    print associated value
   """
 
-  values = []
-  for key in keys:
-    if key in dict:
-      values.append(dict[key])
-  return values
+  values = get_values(my_dictionary, last_elements)
 
-"""
- For each element in last_elements:
-  find that key in my_dictionary
-  print associated value
-"""
+  print(values)
 
-values = get_values(my_dictionary, last_elements)
-
-print(values)
+decode("coding_qual_input.txt")
