@@ -69,6 +69,12 @@ my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
 
 print(my_dictionary)
 
+# Create list of dictionary keys
+
+my_dictionary_keys = list(my_dictionary.keys())
+
+print(my_dictionary_keys)
+
 # Create staircase of nums length
 
 def create_staircase(nums):
@@ -84,13 +90,7 @@ def create_staircase(nums):
       
   return subsets
 
-# Create list of dictionary keys
-
-my_dictionary_keys = list(my_dictionary.keys())
-
-print(my_dictionary_keys)
-
-# Create staircase from dictionary
+# Create staircase from dictionary keys
 
 my_staircase = create_staircase(my_dictionary_keys)
 
@@ -109,3 +109,32 @@ def get_last_elements(list_of_lists):
 last_elements = get_last_elements(my_staircase)
 
 print(last_elements)
+
+# Given a list of keys, find each associated value in a given dictionary
+
+def get_values(dict, keys):
+  """Return a list of values associated with the given keys in the given dictionary.
+
+  Args:
+    dict: A dictionary.
+    keys: A list of keys.
+
+  Returns:
+    A list of values.
+  """
+
+  values = []
+  for key in keys:
+    if key in dict:
+      values.append(dict[key])
+  return values
+
+"""
+ For each element in last_elements:
+  find that key in my_dictionary
+  print associated value
+"""
+
+values = get_values(my_dictionary, last_elements)
+
+print(values)
