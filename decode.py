@@ -95,3 +95,17 @@ print(my_dictionary_keys)
 my_staircase = create_staircase(my_dictionary_keys)
 
 print(my_staircase)
+
+# Create list of last element in each sub-list
+
+def get_last_elements(list_of_lists):
+  last_elements = []
+  for sublist in list_of_lists:
+    last_elements.append(sublist[-1])
+  return last_elements
+
+# Get last elements of staircase
+
+last_elements = get_last_elements(my_staircase)
+
+print(last_elements)
