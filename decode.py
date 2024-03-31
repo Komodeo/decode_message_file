@@ -61,11 +61,11 @@ def create_dictionary_from_text_file(file_path):
 
 # Example usage:
 
-my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
+# my_dictionary = create_dictionary_from_text_file("example_coded_message.txt")
 
 # Create dictionary from solution file
 
-# my_dictionary = create_dictionary_from_text_file("coding_qual_input.txt")
+my_dictionary = create_dictionary_from_text_file("coding_qual_input.txt")
 
 print(my_dictionary)
 
