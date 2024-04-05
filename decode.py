@@ -65,7 +65,7 @@ def decode(message_file):
 
     return dictionary_sorted
 
-  # Create dictionary from solution file
+  # Create dictionary from message_file
 
   my_dictionary = create_dictionary_from_text_file(message_file)
 
@@ -131,6 +131,11 @@ def decode(message_file):
 
   values = get_values(my_dictionary, last_elements)
 
-  print(values)
+  # Print the list of values with a space between each
+  # in all lowercase with no punctuation or leading/trailing whitespace around the word sequence
 
+  print(*values)
+
+# Decode the solution file
+  
 decode("coding_qual_input.txt")
